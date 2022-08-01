@@ -1,1 +1,1 @@
-# sui
+# sui devnet
