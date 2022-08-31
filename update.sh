@@ -7,14 +7,13 @@ source $HOME/.cargo/env
 cd $HOME
 git clone https://github.com/MystenLabs/sui.git
 cd sui
-git remote add upstream https://github.com/MystenLabs/sui
-git fetch upstream
-git checkout -B devnet --track upstream/devnet
+git checkout devnet-0.8.0
 cargo build -p sui-node -p sui --release
 mv ~/sui/target/release/sui-node /usr/local/bin/
 mv ~/sui/target/release/sui /usr/local/bin/
 wget -O /var/sui/genesis.blob https://github.com/MystenLabs/sui-genesis/raw/main/devnet/genesis.blob
 systemctl restart suid
+
 
 if [ "$language" = "uk" ]; then
     echo -e "\n\e[93mSui Fullnode Updated\e[0m\n"
