@@ -24,7 +24,7 @@ if [ "$language" = "uk" ]; then
     echo -e "Зайти в клієнт ноди \e[92msui client\e[0m"
     echo -e "Подивитись адресу гаманця \e[92msui keytool list\e[0m"
 else
-    echo -e "\n\e[93mMasa Finance Updated\e[0m\n"
+    echo -e "\n\e[93mSui Fullnode Updated\e[0m\n"
     echo -e "Check node logs \e[92mjournalctl -n 100 -f -u sui\e[0m"
     echo -e "\e[92mCTRL + C\e[0m to exit logs\n"
     echo -e "Open sui menu \e[92msui client\e[0m"
