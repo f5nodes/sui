@@ -1,1 +1,1 @@
-# sui devnet & fullnode
+# sui devnet & tesnet fullnode
