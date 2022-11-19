@@ -1,15 +1,17 @@
 #!/bin/bash
 
-node_install="https://raw.githubusercontent.com/f5nodes/sui/main/install.sh"
-node_update="https://raw.githubusercontent.com/f5nodes/sui/main/update.sh"
+devnet_install="https://raw.githubusercontent.com/f5nodes/sui/main/devnet.sh"
+devnet_update="https://raw.githubusercontent.com/f5nodes/sui/main/devnet_update.sh"
+testnet_install="https://raw.githubusercontent.com/f5nodes/sui/main/testnet.sh"
+testnet_update="https://raw.githubusercontent.com/f5nodes/sui/main/testnet_update.sh"
 
 if [ "$language" = "uk" ]; then
     PS3='Виберіть опцію: '
-    options=("Встановити ноду" "Оновити ноду" "Вийти з меню")
+    options=("Встановити devnet" "Оновити devnet" "Встановити testnet" "Оновити testnet" "Вийти з меню")
     selected="Ви вибрали опцію"
 else
     PS3='Enter your option: '
-    options=("Install the node" "Update the node" "Quit")
+    options=("Install the devnet" "Update the devnet" "Install the testnet" "Update the testnet" "Quit")
     selected="You choose the option"
 fi
 
@@ -19,16 +21,28 @@ do
         "${options[0]}")
             echo "$selected $opt"
             sleep 1
-            . <(wget -qO- $node_install)
+            . <(wget -qO- $devnet_install)
             break
             ;;
         "${options[1]}")
             echo "$selected $opt"
             sleep 1
-            . <(wget -qO- $node_update)
+            . <(wget -qO- $devnet_update)
             break
             ;;
         "${options[2]}")
+            echo "$selected $opt"
+            sleep 1
+            . <(wget -qO- $testnet_install)
+            break
+            ;;
+        "${options[3]}")
+            echo "$selected $opt"
+            sleep 1
+            . <(wget -qO- $testnet_update)
+            break
+            ;;
+        "${options[4]}")
             echo "$selected $opt"
             break
             ;;
