@@ -17,7 +17,8 @@ echo -e 'Setting up swapfile...\n'
 curl -s https://raw.githubusercontent.com/f5nodes/root/main/install/swap8.sh | bash
 
 echo -e '\n\e[42mInstall software\e[0m\n' && sleep 1
-apt-get update && DEBIAN_FRONTEND=noninteractive TZ=Etc/UTC apt-get install -y --no-install-recommends tzdata git ca-certificates curl build-essential libssl-dev libclang-dev pkg-config openssl protobuf-compiler cmake jq
+sudo apt-get update
+sudo apt-get install -y --no-install-recommends tzdata ca-certificates build-essential libssl-dev libclang-dev pkg-config openssl protobuf-compiler cmake
 echo -e '\n\e[42mInstall Rust\e[0m\n' && sleep 1
 sudo curl https://sh.rustup.rs -sSf | sh -s -- -y
 source $HOME/.cargo/env
