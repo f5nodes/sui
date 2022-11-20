@@ -31,7 +31,7 @@ git fetch upstream
 git checkout -B testnet --track upstream/testnet
 
 mkdir $HOME/.sui
-wget -O $HOME/.sui/genesis.blob https://raw.githubusercontent.com/SuiExternal/sui-external/main/genesis.blob
+sudo mv $HOME/genesis.blob $HOME/.sui/genesis.blob
 cp $HOME/sui/crates/sui-config/data/fullnode-template.yaml $HOME/.sui/fullnode.yaml
 sed -i.bak "s|db-path:.*|db-path: \"$HOME\/.sui\/db\"| ; s|genesis-file-location:.*|genesis-file-location: \"$HOME\/.sui\/genesis.blob\"| ; s|127.0.0.1|0.0.0.0|" $HOME/.sui/fullnode.yaml
 
