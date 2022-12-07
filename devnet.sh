@@ -27,17 +27,12 @@ mkdir -p /var/sui/db
 cd $HOME
 git clone https://github.com/MystenLabs/sui.git
 cd sui
-git remote add upstream https://github.com/MystenLabs/sui
-git fetch upstream
-git checkout --track upstream/devnet
+git checkout 99b4e7ca83b6d1abe312f5afc04840dce331238b
 cp crates/sui-config/data/fullnode-template.yaml /var/sui/fullnode.yaml
-#curl -fLJO https://github.com/MystenLabs/sui-genesis/raw/main/devnet/genesis.blob
-wget -O /var/sui/genesis.blob https://github.com/MystenLabs/sui-genesis/raw/main/devnet/genesis.blob
-sed -i.bak "s/db-path:.*/db-path: \"\/var\/sui\/db\"/ ; s/genesis-file-location:.*/genesis-file-location: \"\/var\/sui\/genesis.blob\"/" /var/sui/fullnode.yaml
-cargo build --release
-mv ~/sui/target/release/sui-node /usr/local/bin/
-mv ~/sui/target/release/sui /usr/local/bin/
-sed -i.bak 's/127.0.0.1/0.0.0.0/' /var/sui/fullnode.yaml
+sed -i.bak "s/db-path:.*/db-path: \"\/var\/sui\/suidb\"/ ; s/genesis-file-location:.*/genesis-file-location: \"\/var\/sui\/genesis.blob\"/" /var/sui/fullnode.yaml
+wget -O /var/sui/genesis.blob https://github.com/SuiExternal/sui-external/raw/main/genesis.blob
+cargo build --release -p sui-node
+mv ~/sui/target/release/sui-node /usr/local/bin/ || exit
 
 echo "[Unit]
 Description=Sui Node
