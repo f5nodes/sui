@@ -32,7 +32,7 @@ cp crates/sui-config/data/fullnode-template.yaml /var/sui/fullnode.yaml
 sed -i.bak "s/db-path:.*/db-path: \"\/var\/sui\/suidb\"/ ; s/genesis-file-location:.*/genesis-file-location: \"\/var\/sui\/genesis.blob\"/" /var/sui/fullnode.yaml
 wget -O /var/sui/genesis.blob https://github.com/SuiExternal/sui-external/raw/main/genesis.blob
 cargo build --release -p sui-node
-mv ~/sui/target/release/sui-node /usr/local/bin/ || exit
+mv ~/sui/target/release/sui-node /usr/local/bin/
 
 echo "[Unit]
 Description=Sui Node
