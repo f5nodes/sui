@@ -9,6 +9,10 @@ if exists curl; then
 else
   sudo apt update && sudo apt install curl -y < "/dev/null"
 fi
+
+sudo apt update && sudo apt upgrade -y
+apt install libpq-dev
+
 bash_profile=$HOME/.bash_profile
 if [ -f "$bash_profile" ]; then
     . $HOME/.bash_profile
