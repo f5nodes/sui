@@ -7,7 +7,7 @@ source $HOME/.cargo/env
 cd $HOME
 git clone https://github.com/MystenLabs/sui.git
 cd sui
-git checkout devnet-0.21.0
+git checkout devnet-0.21.1
 cargo build --bin sui-node --bin sui --release
 mv ~/sui/target/release/sui-node /usr/local/bin/
 mv ~/sui/target/release/sui /usr/local/bin/
