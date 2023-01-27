@@ -29,7 +29,7 @@ git clone https://github.com/MystenLabs/sui.git
 cd sui
 git remote add upstream https://github.com/MystenLabs/sui
 git fetch upstream
-git checkout -B testnet --track upstream/testne
+git checkout -B testnet --track upstream/testnet
 
 mkdir $HOME/.sui
 wget -O $HOME/.sui/genesis.blob https://github.com/MystenLabs/sui-genesis/raw/main/testnet/genesis.blob
