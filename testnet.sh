@@ -22,22 +22,23 @@ sudo apt-get install -y --no-install-recommends tzdata ca-certificates build-ess
 echo -e '\n\e[42mInstall Rust\e[0m\n' && sleep 1
 sudo curl https://sh.rustup.rs -sSf | sh -s -- -y
 source $HOME/.cargo/env
+rustc --version
 
 cd $HOME
 git clone https://github.com/MystenLabs/sui.git
 cd sui
 git remote add upstream https://github.com/MystenLabs/sui
 git fetch upstream
-git checkout -B testnet --track upstream/testnet
+git checkout -B testnet --track upstream/testne
 
 mkdir $HOME/.sui
 wget -O $HOME/.sui/genesis.blob https://github.com/MystenLabs/sui-genesis/raw/main/testnet/genesis.blob
 cp $HOME/sui/crates/sui-config/data/fullnode-template.yaml $HOME/.sui/fullnode.yaml
 sed -i.bak "s|db-path:.*|db-path: \"$HOME\/.sui\/db\"| ; s|genesis-file-location:.*|genesis-file-location: \"$HOME\/.sui\/genesis.blob\"| ; s|127.0.0.1|0.0.0.0|" $HOME/.sui/fullnode.yaml
 
-cargo build --release
+cargo build --release --bin sui-node
 sudo mv ~/sui/target/release/sui-node /usr/local/bin/
-sudo mv ~/sui/target/release/sui /usr/local/bin/
+sui-node -V
 
 echo "[Unit]
 Description=Sui Node
@@ -54,6 +55,7 @@ LimitNOFILE=65535
 WantedBy=multi-user.target" > $HOME/suid.service
 
 sudo mv $HOME/suid.service /etc/systemd/system/
+
 sudo tee <<EOF >/dev/null /etc/systemd/journald.conf
 Storage=persistent
 EOF
