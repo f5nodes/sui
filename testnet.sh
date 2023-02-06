@@ -69,8 +69,6 @@ if [ "$language" = "uk" ]; then
     echo -e "\n\e[93mSui Testnet Fullnode Встановлена\e[0m\n"
     echo -e "Подивитись логи ноди \e[92mjournalctl -n 100 -f -u suid\e[0m"
     echo -e "\e[92mCTRL + C\e[0m щоб вийти з логів\n"
-    echo -e "Зайти в клієнт ноди \e[92msui client\e[0m"
-    echo -e "Подивитись адресу гаманця \e[92msui keytool list\e[0m"
   else
     echo -e "Ваша Sui нода \e[91mбула встановлена неправильно\e[39m, виконайте перевстановлення."
   fi
@@ -79,8 +77,6 @@ else
     echo -e "\n\e[93mSui Testnet Fullnode Installed\e[0m\n"
     echo -e "Check node logs \e[92mjournalctl -n 100 -f -u suid\e[0m"
     echo -e "\e[92mCTRL + C\e[0m to exit logs\n"
-    echo -e "Open sui menu \e[92msui client\e[0m"
-    echo -e "Check your wallet address \e[92msui keytool list\e[0m"
   else
     echo -e "Your Sui Node \e[91mwas not installed correctly\e[39m, please reinstall."
   fi
