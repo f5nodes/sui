@@ -10,7 +10,7 @@ sudo rm /usr/local/bin/sui-node
 sudo mv $HOME/sui/target/release/sui-node /usr/local/bin/
 
 sudo systemctl restart suid
-cd sui && git log -1
+git log -1
 
 if [ "$language" = "uk" ]; then
   if [[ `service suid status | grep active` =~ "running" ]]; then
