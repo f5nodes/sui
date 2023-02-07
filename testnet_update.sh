@@ -7,7 +7,7 @@ git checkout -B testnet --track upstream/testnet
 cargo build --release --bin sui-node
 
 sudo rm /usr/local/bin/sui-node
-mv $HOME/sui/target/release/sui-node /usr/local/bin/
+sudo mv $HOME/sui/target/release/sui-node /usr/local/bin/
 
 sudo systemctl restart suid
 cd sui && git log -1
