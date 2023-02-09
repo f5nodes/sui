@@ -1,6 +1,6 @@
 #!/bin/bash
 
-if ! command -v curl &> /dev/null && ! command -v git &> /dev/null && ! command -v jq &> /dev/null; then
+if ! command -v curl &> /dev/null || ! command -v git &> /dev/null || ! command -v jq &> /dev/null; then
     sudo apt install -y curl git jq
 fi
 
